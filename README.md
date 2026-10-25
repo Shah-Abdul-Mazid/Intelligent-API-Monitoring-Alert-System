@@ -22,9 +22,15 @@ This project autonomously ingests API telemetry, detects anomalies using determi
 - **Interactive Web Dashboard:** Clean, user-friendly UI with real-time KPI metrics, active alerts triage, live telemetry streams, and traffic simulation.
 - **Email Dispatch Support:** Modular notification service for dispatching alert summaries.
 
+
 ---
 
-## 3. Technologies Used
+## 3. Architecture diagram of shah-abdul-mazid/intelligent-api-monitoring-alert-system
+[![Architecture diagram of shah-abdul-mazid/intelligent-api-monitoring-alert-system](https://gitdiagram.com/shah-abdul-mazid/intelligent-api-monitoring-alert-system/diagram.png)](https://gitdiagram.com/shah-abdul-mazid/intelligent-api-monitoring-alert-system?utm_source=readme&utm_medium=picture)
+
+---
+
+## 4. Technologies Used
 
 - **Backend:** Python, FastAPI, Uvicorn, Pydantic v2
 - **Frontend:** React, Vite, Tailwind CSS, Lucide Icons
@@ -34,7 +40,7 @@ This project autonomously ingests API telemetry, detects anomalies using determi
 
 ---
 
-## 4. Prerequisites
+## 5. Prerequisites
 
 - **Python 3.10+** (Required)
 - **Git** (Required)
@@ -42,7 +48,9 @@ This project autonomously ingests API telemetry, detects anomalies using determi
 
 ---
 
-## 5. Installation
+
+
+## 6. Installation
 
 1. **Clone the repository:**
    ```bash
@@ -69,7 +77,7 @@ This project autonomously ingests API telemetry, detects anomalies using determi
 
 ---
 
-## 6. Configuration
+## 7. Configuration
 
 Create an environment configuration file in `backend/.env` (or copy from `backend/.env.example`):
 
@@ -97,7 +105,7 @@ OPENAI_MODEL="gpt-4o-mini"
 
 ---
 
-## 7. Usage
+## 8. Usage
 
 ### Start the Application (Single Command)
 
@@ -122,7 +130,7 @@ Once the service starts, it prints the active local URL in your terminal.
 
 ---
 
-## 8. Dashboard Walkthrough
+## 9. Dashboard Walkthrough
 
 1. Open the local application URL in your browser.
 2. Click **"Load Sample Data"** in the top bar to ingest the test dataset (`sample_api_responses.json`).
@@ -132,7 +140,7 @@ Once the service starts, it prints the active local URL in your terminal.
 
 ---
 
-## 9. Project Structure
+## 10. Project Structure
 
 ```text
 Intelligent API Monitoring & Alert System/
@@ -159,7 +167,7 @@ Intelligent API Monitoring & Alert System/
 
 ---
 
-## 10. API Documentation
+## 11. API Documentation
 
 | Method | Endpoint | Description |
 |---|---|---|
@@ -197,7 +205,7 @@ Intelligent API Monitoring & Alert System/
 
 ---
 
-## 11. Testing
+## 12. Testing
 
 Execute the automated test suite using `pytest`:
 
@@ -218,7 +226,7 @@ PYTHONPATH=backend pytest backend/tests
 
 ---
 
-## 12. Contributing
+## 13. Contributing
 
 1. Fork the repository.
 2. Create a feature branch: `git checkout -b feature/your-feature-name`.
@@ -228,6 +236,6 @@ PYTHONPATH=backend pytest backend/tests
 
 ---
 
-## 13. License
+## 14. License
 
 This project is licensed under the **MIT License**.
