@@ -24,9 +24,45 @@ This project autonomously ingests API telemetry, detects anomalies using determi
 
 
 ---
+## 3. System Architecture
 
-## 3. Architecture diagram of shah-abdul-mazid/intelligent-api-monitoring-alert-system
 [![Architecture diagram of shah-abdul-mazid/intelligent-api-monitoring-alert-system](https://gitdiagram.com/shah-abdul-mazid/intelligent-api-monitoring-alert-system/diagram.png)](https://gitdiagram.com/shah-abdul-mazid/intelligent-api-monitoring-alert-system?utm_source=readme&utm_medium=picture)
+
+
+### High-Level Architecture Flow
+<p align="center">
+  <img src="https://res.cloudinary.com/imnrqlsw/image/upload/v1792928107/FastAPI_Anomaly_Alert_Pipeline-2026-10-25-111555.png" alt="High-Level Architecture Diagram" width="100%" />
+</p>
+
+---
+
+### Detailed Anomaly Alert & Monitoring Pipeline
+<p align="center">
+  <img src="https://res.cloudinary.com/imnrqlsw/image/upload/v1792927973/diagram.png" alt="Detailed Pipeline Diagram" width="100%" />
+</p>
+
+
+### Architecture Breakdown & Technical Details
+
+1. **User / Interface Layer (Frontend Dashboard)**
+   * **Client Interface**: Built with React, Vite, and Tailwind CSS, decorated with Lucide Icons for responsive telemetry visualization.
+   * **Real-time Telemetry & Health Views**: Communicates asynchronously with the backend via REST endpoints to display live response latency charts, error rates, system uptime metrics, and historic alert logs.
+   * **Dynamic Configuration**: Allows engineers to update alert thresholds, toggle notification channels, and manage target endpoint poll frequencies directly from the UI.
+
+2. **API & Validation Layer (FastAPI Backend)**
+   * **High-Performance Routing**: Powered by FastAPI and Uvicorn to process high-throughput monitoring signals with minimal overhead.
+   * **Request Ingestion & Validation**: Utilizes Pydantic v2 data models for rigorous schema validation, type checking, and structured metric parsing before data hits internal processing pipelines.
+   * **Target Endpoint Polling**: Executes synthetic HTTP/HTTPS health checks on registered target services on scheduled intervals or on-demand webhooks.
+
+3. **Anomaly & AI Detection Engine (Dual-Core Processing)**
+   * **Heuristic Anomaly Detection Rules**: Evaluates response codes, latency deviations beyond standard baseline thresholds, unexpected structural shifts in JSON payloads, and silent endpoint degradations.
+   * **AI Root Cause Contextualization**: Integrates with the OpenAI API (`gpt-4o-mini`) to translate complex raw failure logs and dynamic telemetry patterns into human-readable actionable summaries and remediation recommendations.
+   * **Zero-Dependency Fallback Engine**: Employs a local, rule-based heuristic fallback system to guarantee continuous anomaly analysis and notification formatting even during external API downtime or network isolation.
+
+4. **Persistence & Notification Layer (Database & Alerting)**
+   * **Optimized Local Persistence**: Uses SQLite backed by SQLAlchemy ORM with Write-Ahead Logging (WAL) enabled to support high-frequency concurrent writes and query reads without database locking.
+   * **Multi-Channel Alert Dispatcher**: Routes generated context alerts through custom webhooks for Slack and Discord, as well as native Email notifications via SMTP.
+  
 
 ---
 
